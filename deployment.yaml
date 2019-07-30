@@ -42,13 +42,13 @@ spec:
           image: gcr.io/endpoints-release/endpoints-runtime:1
           args: [
             "--http2_port=9000",
-            "--backend=grpc://127.0.0.1:50051",
-            "--service=SERVICE_NAME",
+            "--backend=grpc://127.0.0.1:8080",
+            "--service=OVERRIDE_ME",
             "--rollout_strategy=managed",
           ]
           ports:
             - containerPort: 9000
         - name: grpc-poc
-          image: gcr.io/poncho-builds/grpc-poc@sha256:6951b5c0032d332b87674387b6e66cb673b3107589d3af3e14b20829e6916d94
+          image: OVERRIDE_ME
           ports:
-            - containerPort: 50051
+            - containerPort: 8080
